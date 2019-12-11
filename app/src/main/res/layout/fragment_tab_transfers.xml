@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".tabTransfers">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+        <Spinner
+            android:id="@+id/transfSpinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Account number"/>
+        <EditText
+            android:id="@+id/toAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="300px"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enter de amount"/>
+        <EditText
+            android:id="@+id/transferAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:width="300px"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Transfer"
+            android:onClick="transfer"/>
+
+    </LinearLayout>
+
+
+</FrameLayout>

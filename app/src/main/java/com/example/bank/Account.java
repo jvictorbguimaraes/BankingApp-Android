@@ -6,17 +6,9 @@ public class Account {
     Double amount;
 
     public Account(int number, int clientID, Double amount) {
-        this.clientID = clientID;
         this.number = number;
-        this.amount = amount;
-    }
-
-    public int getClientID() {
-        return clientID;
-    }
-
-    public void setClientID(int clientID) {
         this.clientID = clientID;
+        this.amount = amount;
     }
 
     public int getNumber() {
@@ -25,6 +17,14 @@ public class Account {
 
     public void setNumber(int number) {
         this.number = number;
+    }
+
+    public int getClientID() {
+        return clientID;
+    }
+
+    public void setClientID(int clientID) {
+        this.clientID = clientID;
     }
 
     public Double getAmount() {
