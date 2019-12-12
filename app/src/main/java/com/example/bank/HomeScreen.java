@@ -75,11 +75,6 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
     }
 
-    public void changeTab(View view){
-        //viewPager.setCurrentItem(id);
-        pageAdapter.notifyDataSetChanged();
-    }
-
     public ArrayList<Account> getAccounts(){
         return accounts;
     }
@@ -93,10 +88,16 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
         Account toAccount = findAccount(Integer.parseInt(accountNumber.getText().toString()));
         if (toAccount == null) {
             Toast.makeText(getApplicationContext(),"Account not found", Toast.LENGTH_LONG).show();
+        }else if(senderAccount instanceof Saving && senderAccount.amount < Double.parseDouble(amount.getText().toString()) + 5) {
+            Toast.makeText(getApplicationContext(), "Your account cannot transfer this amount", Toast.LENGTH_LONG).show();
         }else if(senderAccount.amount < Double.parseDouble(amount.getText().toString())){
-            Toast.makeText(getApplicationContext(),"Your account does not have this amount to transfer", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),"Your account cannot transfer this amount", Toast.LENGTH_LONG).show();
         }else{
-            senderAccount.amount -= Double.parseDouble(amount.getText().toString());
+            if(senderAccount instanceof Saving){
+                senderAccount.amount -= Double.parseDouble(amount.getText().toString()) + 5;
+            }else {
+                senderAccount.amount -= Double.parseDouble(amount.getText().toString());
+            }
             toAccount.amount += Double.parseDouble(amount.getText().toString());
             Toast.makeText(getApplicationContext(),"Transfer completed", Toast.LENGTH_LONG).show();
         }
