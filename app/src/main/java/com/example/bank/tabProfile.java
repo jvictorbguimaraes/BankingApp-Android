@@ -46,7 +46,7 @@ public class tabProfile extends Fragment {
         address = v.findViewById(R.id.address);
         update = v.findViewById(R.id.update);
 
-        name.setText(loggedClient.getUsername());
+        name.setText(loggedClient.getName());
         birthday.setText(loggedClient.getDob());
         sinExpiry.setText(loggedClient.getSinExp());
         phone.setText(loggedClient.getPhone());
@@ -63,7 +63,7 @@ public class tabProfile extends Fragment {
                 loggedClient.setEmail(email.getText().toString());
                 loggedClient.setAddress(address.getText().toString());
 
-                name.setText(loggedClient.getUsername());
+                name.setText(loggedClient.getName());
                 birthday.setText(loggedClient.getDob());
                 sinExpiry.setText(loggedClient.getSinExp());
                 phone.setText(loggedClient.getPhone());

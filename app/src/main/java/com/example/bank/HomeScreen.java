@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -23,8 +24,10 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
     TabItem tabBills,tabHome,tabProfile,tabTransfers;
     PageAdapter pageAdapter;
     Client loggedClient;
+    Spinner acc;
 
     ArrayList<Account> accounts = new ArrayList<>();
+    ArrayList <Bill> bills = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +46,7 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
         loggedClient = MainActivity.loggedClient;
 
         fillAccounts();
+        fillBills();
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -73,6 +77,23 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
         });
 
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+
+
+        Button payBill = findViewById(R.id.payBill);
+        final EditText billNo = findViewById(R.id.billNo);
+        acc = findViewById(R.id.accountType);
+//        payBill.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//                Account selectedAccount = findAccountByClient(loggedClient.id, acc.getSelectedItem().toString());
+//
+//                for(Bill bills: bills){
+//                    if(Integer.parseInt(billNo.toString()) == bills.getBillNo()){
+//                        selectedAccount.amount -= bills.getAmount();
+//                    }
+//                }
+//
+//            }
+//        });
     }
 
     public void changeTab(View view){
@@ -101,6 +122,7 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
             Toast.makeText(getApplicationContext(),"Transfer completed", Toast.LENGTH_LONG).show();
         }
     }
+
 
     public Account findAccountByClient(int number, String type){
         for(Account account : accounts){
@@ -156,5 +178,25 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
         accounts.add(account);
         account = new Credit(67878,3,250.0, 800.0);
         accounts.add(account);
+    }
+
+    public void fillBills(){
+
+        Bill bill = new Bill("Mobile",1001,false, 50);
+        bills.add(bill);
+        bill = new Bill("Hydro",1002,false, 101.2);
+        bills.add(bill);
+        bill = new Bill("Water",1003,false, 25.32);
+        bills.add(bill);
+        bill = new Bill("Gas",1004,true, 22);
+        bills.add(bill);
+        bill = new Bill("Gas",1005,false, 40);
+        bills.add(bill);
+        bill = new Bill("Hydro",1006,true, 113);
+        bills.add(bill);
+        bill = new Bill("Water",1007,false, 223);
+        bills.add(bill);
+        bill = new Bill("Mobile",1008,false, 50);
+        bills.add(bill);
     }
 }
