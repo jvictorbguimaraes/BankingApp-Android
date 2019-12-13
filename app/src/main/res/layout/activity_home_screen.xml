@@ -19,8 +19,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/tabHome"
             android:text="Home"
-            android:clickable="true"
-            android:onClick="changeTab"></com.google.android.material.tabs.TabItem>
+            android:clickable="true"></com.google.android.material.tabs.TabItem>
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
