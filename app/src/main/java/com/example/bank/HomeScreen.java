@@ -1,6 +1,7 @@
 package com.example.bank;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
@@ -16,7 +17,7 @@ import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 
-public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     TabLayout tabLayout;
     ViewPager viewPager;
@@ -59,6 +60,7 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
                 else if(tab.getPosition() == 3){
                     pageAdapter.notifyDataSetChanged();
                 }
+
             }
 
             @Override
@@ -72,7 +74,11 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
             }
         });
 
+
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+
+
+
     }
 
     public ArrayList<Account> getAccounts(){
@@ -158,4 +164,5 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
         account = new Credit(67878,3,250.0, 800.0);
         accounts.add(account);
     }
+
 }
