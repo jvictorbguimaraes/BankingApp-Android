@@ -2,19 +2,26 @@ package com.example.bank;
 
 public class Client {
     int id;
-    String username;
-    String password;
-    String name;
-    String address;
-    String phone;
+    private String username;
+    private String password;
+    private String name;
+    private String address;
+    private String phone;
+    private String email;
+    private String sinExp;
+    private String dob;
 
-    public Client(int id, String username, String password, String name, String address, String phone) {
+
+    public Client(int id, String username, String password, String name, String address, String phone, String email, String sinExp, String dob) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.name = name;
         this.address = address;
         this.phone = phone;
+        this.email = email;
+        this.sinExp = sinExp;
+        this.dob = dob;
     }
 
     public int getId() {
@@ -63,5 +70,29 @@ public class Client {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getSinExp() {
+        return sinExp;
+    }
+
+    public void setSinExp(String sinExp) {
+        this.sinExp = sinExp;
+    }
+
+    public String getDob() {
+        return dob;
+    }
+
+    public void setDob(String dob) {
+        this.dob = dob;
     }
 }
