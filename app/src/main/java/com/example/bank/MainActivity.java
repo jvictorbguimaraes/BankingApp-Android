@@ -3,7 +3,7 @@ package com.example.bank;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -30,17 +30,10 @@ public class MainActivity extends AppCompatActivity {
         clients.add(client);
         client = new Client(1  ,"mary","456789","Mary Cris","Scarborough","(425)587 5687","mary@gmail.com","20-8-2021","10-5-1988");
         clients.add(client);
-        client = new Client(2  ,"jvictor","456123","Joao Victor","Victoria Park","(437)567 3254","victor@gmail.com","16-8-2021","2-8-1986");
+        client = new Client(2  ,"jvictor","456123","Joao Victor","Victoria Park","(437)567 3254","jvictorbguimaraes@gmail.com","16-8-2021","2-8-1986");
         clients.add(client);
         client = new Client(3  ,"esha.shetty","789456","Esha Shetty","North York","(435)858 7688","esha@gmail.com","10-8-2021","3-09-1996");
         clients.add(client);
-
-
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("mailto: jvictorbguimaraes@gmail.com"));
-        intent.putExtra(Intent.EXTRA_SUBJECT,"TEST TES TEST");
-        intent.putExtra(Intent.EXTRA_TEXT,"TEST2 TEST2 TEST2");
-        startActivity(Intent.createChooser(intent, "Send mail..."));
-        finish();
     }
 
     public void login(View v)

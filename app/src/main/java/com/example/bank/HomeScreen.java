@@ -3,6 +3,7 @@ package com.example.bank;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -15,6 +16,7 @@ import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
@@ -106,12 +108,15 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
                 finalAmount = Double.parseDouble(amount.getText().toString());
             }
             senderAccount.amount -= finalAmount;
+            senderAccount.transactions.add(new Transaction(toAccount.number, -finalAmount, new Date()));
             toAccount.amount += Double.parseDouble(amount.getText().toString());
-            Toast.makeText(getApplicationContext(),"Transfer completed", Toast.LENGTH_LONG).show();
+            toAccount.transactions.add(new Transaction(senderAccount.number, Double.parseDouble(amount.getText().toString()), new Date()));
         }
 
         Client toClient = findClientByAccount(toAccount.getClientID());
+        sendTransferEmail(toClient, Double.parseDouble(amount.getText().toString()));
 
+        Toast.makeText(getApplicationContext(),"Transfer completed", Toast.LENGTH_LONG).show();
     }
 
     public Client findClientByAccount(int number){
@@ -151,7 +156,7 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
     public void fillAccounts(){
         Account account = new Saving(12345, 0,1500.0);
         accounts.add(account);
-        account = new Chequing(456187,0, 575.0);
+        account = new Chequing(456187,0, 1575.0);
         accounts.add(account);
         account = new Credit(879845,0,55.0, 1500.0);
         accounts.add(account);
@@ -176,5 +181,31 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
         accounts.add(account);
         account = new Credit(67878,3,250.0, 800.0);
         accounts.add(account);
+    }
+
+    public void sendTransferEmail(Client toClient, Double amount){
+
+        final String message = loggedClient.getName() + " transfered " + amount + " CAD to your account";
+        final String email = toClient.getEmail();
+
+
+        AsyncTask async = new AsyncTask() {
+            @Override
+            protected Object doInBackground(Object[] objects) {
+                try{
+                    GMailSender sender = new GMailSender("juliedos19@gmail.com",
+                            "chickenbariken");
+                    sender.sendMail("JEM Bank Transfer", message,
+                            "juliedos19@gmail.com", email);
+                } catch (Exception e) {
+                }
+                return  null;
+            }
+
+            @Override
+            protected void onPostExecute(Object o) {
+
+            }
+        }.execute();
     }
 }
