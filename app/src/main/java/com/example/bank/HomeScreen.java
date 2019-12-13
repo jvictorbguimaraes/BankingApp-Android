@@ -23,8 +23,10 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
     TabItem tabBills,tabHome,tabProfile,tabTransfers;
     PageAdapter pageAdapter;
     Client loggedClient;
+    ArrayList<Client> clients;
 
     ArrayList<Account> accounts = new ArrayList<>();
+    ArrayList<Transaction> transactions = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +43,7 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
         viewPager.setAdapter(pageAdapter);
 
         loggedClient = MainActivity.loggedClient;
+        clients = MainActivity.clients;
 
         fillAccounts();
 
@@ -88,19 +91,35 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
         Account toAccount = findAccount(Integer.parseInt(accountNumber.getText().toString()));
         if (toAccount == null) {
             Toast.makeText(getApplicationContext(),"Account not found", Toast.LENGTH_LONG).show();
+            return;
         }else if(senderAccount instanceof Saving && senderAccount.amount < Double.parseDouble(amount.getText().toString()) + 5) {
             Toast.makeText(getApplicationContext(), "Your account cannot transfer this amount", Toast.LENGTH_LONG).show();
+            return;
         }else if(senderAccount.amount < Double.parseDouble(amount.getText().toString())){
             Toast.makeText(getApplicationContext(),"Your account cannot transfer this amount", Toast.LENGTH_LONG).show();
+            return;
         }else{
+            Double finalAmount;
             if(senderAccount instanceof Saving){
-                senderAccount.amount -= Double.parseDouble(amount.getText().toString()) + 5;
+                finalAmount = Double.parseDouble(amount.getText().toString()) + 5;
             }else {
-                senderAccount.amount -= Double.parseDouble(amount.getText().toString());
+                finalAmount = Double.parseDouble(amount.getText().toString());
             }
+            senderAccount.amount -= finalAmount;
             toAccount.amount += Double.parseDouble(amount.getText().toString());
             Toast.makeText(getApplicationContext(),"Transfer completed", Toast.LENGTH_LONG).show();
         }
+
+        Client toClient = findClientByAccount(toAccount.getClientID());
+
+    }
+
+    public Client findClientByAccount(int number){
+        for(Client client : clients){
+            if (client.id == number)
+                return client;
+        }
+        return null;
     }
 
     public Account findAccountByClient(int number, String type){

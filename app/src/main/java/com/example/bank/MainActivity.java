@@ -3,6 +3,7 @@ package com.example.bank;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -14,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     EditText username, password;
 
-    ArrayList<Client> clients = new ArrayList<>();
+    public static ArrayList<Client> clients = new ArrayList<>();
     public static Client loggedClient;
 
     @Override
@@ -35,6 +36,11 @@ public class MainActivity extends AppCompatActivity {
         clients.add(client);
 
 
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("mailto: jvictorbguimaraes@gmail.com"));
+        intent.putExtra(Intent.EXTRA_SUBJECT,"TEST TES TEST");
+        intent.putExtra(Intent.EXTRA_TEXT,"TEST2 TEST2 TEST2");
+        startActivity(Intent.createChooser(intent, "Send mail..."));
+        finish();
     }
 
     public void login(View v)
