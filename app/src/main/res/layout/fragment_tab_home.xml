@@ -45,11 +45,13 @@
                 app:fontFamily="@font/libre_franklin"  />
 
             <Button
-                android:id="@+id/button2"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:id="@+id/btnCheq"
+                android:onClick="getTransactionsCheq"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Button"
-                app:fontFamily="@font/libre_franklin" />
+                android:text="Button" />
         </TableRow>
 
         <TableRow
@@ -72,11 +74,13 @@
                 app:fontFamily="@font/amiko" />
 
             <Button
-                android:id="@+id/button3"
+                android:id="@+id/btnSaving"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Button"
-                app:fontFamily="@font/libre_franklin"  />
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:onClick="getTransactionsSaving"
+                android:text="Button" />
         </TableRow>
 
         <TableRow
