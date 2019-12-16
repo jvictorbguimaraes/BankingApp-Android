@@ -9,13 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Spinner;
-
-import java.util.ArrayList;
-
-import static com.example.bank.MainActivity.loggedClient;
 
 
 /**
@@ -25,8 +19,6 @@ public class tabBills extends Fragment {
 
 
     Spinner accountTypes;
-    Button payBill;
-    EditText billNo;
 
     public tabBills() {
         // Required empty public constructor
@@ -42,14 +34,10 @@ public class tabBills extends Fragment {
 
         String[] accList = {"Chequing", "Saving"};
         accountTypes = v.findViewById(R.id.accountType);
-//        payBill = v.findViewById(R.id.payBill);
-//        billNo = v.findViewById(R.id.billNo);
-//        Bill bill;
 
         ArrayAdapter<String> catAdapter = new ArrayAdapter<String>(this.getActivity(), R.layout.support_simple_spinner_dropdown_item, accList);
         catAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
         accountTypes.setAdapter(catAdapter);
-
 
 
         return v;

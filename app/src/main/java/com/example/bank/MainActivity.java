@@ -32,8 +32,15 @@ public class MainActivity extends AppCompatActivity {
         clients.add(client);
         client = new Client(2  ,"jvictor","456123","Joao Victor","Victoria Park","(437)567 3254","jvictorbguimaraes@gmail.com","16-8-2021","2-8-1986");
         clients.add(client);
-        client = new Client(3  ,"esha.shetty","789456","Esha Shetty","North York","(435)858 7688","esha@gmail.com","10-8-2021","3-09-1996");
+        client = new Client(3  ,"esha.shetty","789456","Esha Shetty","North York","(435)858 7688","esha.dshetty@gmail.com","10-8-2021","3-09-1996");
         clients.add(client);
+
+
+//        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("mailto: jvictorbguimaraes@gmail.com"));
+//        intent.putExtra(Intent.EXTRA_SUBJECT,"TEST TES TEST");
+//        intent.putExtra(Intent.EXTRA_TEXT,"TEST2 TEST2 TEST2");
+//        startActivity(Intent.createChooser(intent, "Send mail..."));
+//        finish();
     }
 
     public void login(View v)

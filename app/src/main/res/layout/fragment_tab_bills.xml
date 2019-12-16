@@ -111,7 +111,8 @@
                 android:id="@+id/payBill"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Pay" />
+                android:text="Pay"
+                android:onClick="payBill"/>
         </TableRow>
     </TableLayout>
 

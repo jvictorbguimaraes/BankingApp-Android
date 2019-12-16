@@ -28,6 +28,7 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
     ArrayList<Client> clients;
 
     ArrayList<Account> accounts = new ArrayList<>();
+    ArrayList <Bill> bills = new ArrayList<>();
     ArrayList<Transaction> transactions = new ArrayList<>();
 
     @Override
@@ -48,6 +49,7 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
         clients = MainActivity.clients;
 
         fillAccounts();
+        fillBills();
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -119,6 +121,41 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
         Toast.makeText(getApplicationContext(),"Transfer completed", Toast.LENGTH_LONG).show();
     }
 
+    public void payBill(View v){
+       EditText billNo = findViewById(R.id.billNo);
+       Spinner accType = findViewById(R.id.accountType);
+       Account userAccount = findAccountByClient(loggedClient.id, accType.getSelectedItem().toString());
+       Bill selectedBill = new Bill();
+       boolean found = false;
+       int pos = 0, count = 0;
+       for( Bill bill: bills) {
+           if (Integer.parseInt(billNo.getText().toString()) == bill.getBillNo()) {
+               selectedBill = bill;
+               pos = count;
+               found = true;
+               break;
+           }
+           else{
+               found = false;
+           }
+           count++;
+       }
+
+       if(found == true){
+           if(selectedBill.getBillStatus()== false){
+               userAccount.amount -= bills.get(pos).getAmount();
+               bills.get(pos).setBillStatus(true);
+               Toast.makeText(getApplicationContext(),"Bill Paid Successfully", Toast.LENGTH_LONG).show();
+           }
+           else {
+               Toast.makeText(getApplicationContext(),"Bill Already Paid!", Toast.LENGTH_LONG).show();
+           }
+       }
+       else{
+           Toast.makeText(getApplicationContext(),"Bill Not Found", Toast.LENGTH_LONG).show();
+       }
+    }
+
     public Client findClientByAccount(int number){
         for(Client client : clients){
             if (client.id == number)
@@ -181,6 +218,26 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
         accounts.add(account);
         account = new Credit(67878,3,250.0, 800.0);
         accounts.add(account);
+    }
+
+    public void fillBills(){
+
+        Bill bill = new Bill("Mobile",1001,false, 50);
+        bills.add(bill);
+        bill = new Bill("Hydro",1002,false, 101.2);
+        bills.add(bill);
+        bill = new Bill("Water",1003,false, 25.32);
+        bills.add(bill);
+        bill = new Bill("Gas",1004,true, 22);
+        bills.add(bill);
+        bill = new Bill("Gas",1005,false, 40);
+        bills.add(bill);
+        bill = new Bill("Hydro",1006,true, 113);
+        bills.add(bill);
+        bill = new Bill("Water",1007,false, 223);
+        bills.add(bill);
+        bill = new Bill("Mobile",1008,false, 50);
+        bills.add(bill);
     }
 
     public void sendTransferEmail(Client toClient, Double amount){

@@ -5,40 +5,78 @@
     android:layout_height="match_parent"
     tools:context=".tabTransfers">
 
-    <LinearLayout
+    <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center">
-        <Spinner
-            android:id="@+id/transfSpinner"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Account number"/>
-        <EditText
-            android:id="@+id/toAccount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:width="300px"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Enter de amount"/>
-        <EditText
-            android:id="@+id/transferAmount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:width="300px"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Transfer"
-            android:onClick="transfer"/>
+        android:stretchColumns="*"
+        android:layout_margin="30dp">
 
-    </LinearLayout>
+        <TableRow
+            android:layout_width="0dp"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select Account Type"
+                fontFamily="@font/libre_franklin"
+                android:textSize="20dp"/>
+
+            <Spinner
+                android:id="@+id/transfSpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="0dp"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Enter Account Number"
+                android:fontFamily="@font/libre_franklin"
+                android:textSize="20dp"/>
+
+            <EditText
+                android:id="@+id/toAccount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="300px" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="0dp"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Enter Amount"
+                android:fontFamily="@font/libre_franklin"
+                android:textSize="20dp" />
+
+            <EditText
+                android:id="@+id/transferAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="300px" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="0dp"
+            android:layout_height="match_parent" >
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="transfer"
+                android:text="Transfer"
+                android:fontFamily="@font/libre_franklin"/>
+        </TableRow>
+    </TableLayout>
 
 
 </FrameLayout>
