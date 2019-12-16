@@ -3,11 +3,13 @@ package com.example.bank;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -15,6 +17,7 @@ import android.widget.Toast;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -35,6 +38,9 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
 
+        Button btnCheq = (Button) findViewById(R.id.btnCheq);
+        Button btnSaving =(Button) findViewById(R.id.btnSaving);
+
         tabLayout = findViewById(R.id.tabLayout);
         viewPager = findViewById(R.id.view_pager);
         tabHome = findViewById(R.id.tabHome);
@@ -43,6 +49,7 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
         tabProfile = findViewById(R.id.tabProfile);
         pageAdapter = new PageAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
         viewPager.setAdapter(pageAdapter);
+
 
         loggedClient = MainActivity.loggedClient;
         clients = MainActivity.clients;
@@ -207,5 +214,20 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
 
             }
         }.execute();
+    }
+
+    public void getTransactionsCheq(View v){
+        Intent intent = new Intent(this, TransactionActivities.class);
+        intent.putExtra("accnts",accounts);
+        intent.putExtra("accntname",String.valueOf(loggedClient.id));
+        intent.putExtra("btn","btnCheq");
+        startActivity(intent);
+    }
+    public void getTransactionsSaving(View v){
+        Intent intent = new Intent(this, TransactionActivities.class);
+        intent.putExtra("accnts",accounts);
+        intent.putExtra("accntname",String.valueOf(loggedClient.id));
+        intent.putExtra("btn","btnSaving");
+        startActivity(intent);
     }
 }

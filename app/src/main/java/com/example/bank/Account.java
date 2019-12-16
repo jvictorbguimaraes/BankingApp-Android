@@ -1,8 +1,9 @@
 package com.example.bank;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Account {
+public class Account  implements Serializable {
     int number;
     int clientID;
     Double amount;

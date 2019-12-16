@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
         Client client = new Client(0  ,"emad.nasrallah","123456","Emad Nasrallah","","(437)217 2234", "emad@gmail.com","20-5-2023","19-1-1970");
         clients.add(client);
-        client = new Client(1  ,"mary","456789","Mary Cris","Scarborough","(425)587 5687","mary@gmail.com","20-8-2021","10-5-1988");
+        client = new Client(1  ,"mary","456789","Mary Cris","Scarborough","(425)587 5687","mcrismcllns@gmail.com","20-8-2021","10-5-1988");
         clients.add(client);
         client = new Client(2  ,"jvictor","456123","Joao Victor","Victoria Park","(437)567 3254","jvictorbguimaraes@gmail.com","16-8-2021","2-8-1986");
         clients.add(client);
