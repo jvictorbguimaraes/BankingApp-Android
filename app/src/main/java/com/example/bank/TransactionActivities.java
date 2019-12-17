@@ -32,7 +32,7 @@ public class TransactionActivities extends AppCompatActivity {
         aa = getIntent().getExtras().getString("accntname");
         if(getIntent().getExtras().getString("btn").equals("btnCheq")) {
             ts.clear();
-            txtAccType.setText("Chequing Transaction History");
+            txtAccType.setText("  Chequing Transaction History");
             for (Account acc : accounts) {
                 if (acc instanceof Chequing) {
                     if(getIntent().getExtras().getString("accntname").equals(String.valueOf(acc.clientID))){
@@ -52,7 +52,7 @@ public class TransactionActivities extends AppCompatActivity {
                 }
             }
         }else if (getIntent().getExtras().getString("btn").equals("btnSaving")){
-            txtAccType.setText("Saving Transaction History");
+            txtAccType.setText("  Saving Transaction History");
             ts.clear();
             for (Account acc : accounts) {
                 if (acc instanceof Saving) {
@@ -74,7 +74,7 @@ public class TransactionActivities extends AppCompatActivity {
                 }
             }
         }else{
-            txtAccType.setText("Credit Transaction History");
+            txtAccType.setText("  Credit Transaction History");
             ts.clear();
             for (Account acc : accounts) {
                 if (acc instanceof Credit) {

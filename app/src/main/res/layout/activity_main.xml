@@ -62,7 +62,6 @@
             android:id="@+id/username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="jvictor"
             android:textSize="25dp"/>
     </TableRow>
 
@@ -89,7 +88,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
-            android:text="456123"
             android:textSize="25dp"/>
 
     </TableRow>
