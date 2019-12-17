@@ -108,8 +108,11 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
         Account senderAccount = findAccountByClient(loggedClient.id, sp.getSelectedItem().toString());
         Account toAccount = findAccount(Integer.parseInt(accountNumber.getText().toString()));
 
-        if (toAccount == null) {
+        if (toAccount == null || toAccount instanceof Credit) {
             Toast.makeText(getApplicationContext(),"Account not found", Toast.LENGTH_LONG).show();
+            return;
+        }else if (toAccount.number == senderAccount.number) {
+            Toast.makeText(getApplicationContext(), "Cannot transfer to the same account", Toast.LENGTH_LONG).show();
             return;
         }else if(senderAccount instanceof Saving && senderAccount.amount < Double.parseDouble(amount.getText().toString()) + 5) {
             Toast.makeText(getApplicationContext(), "Your account cannot transfer this amount", Toast.LENGTH_LONG).show();
