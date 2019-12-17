@@ -30,9 +30,9 @@ public class MainActivity extends AppCompatActivity {
         clients.add(client);
         client = new Client(1  ,"mary","456789","Mary Cris","Scarborough","(425)587 5687","mcrismcllns@gmail.com","20-8-2021","10-5-1988");
         clients.add(client);
-        client = new Client(2  ,"jvictor","456123","Joao Victor","Victoria Park","(437)567 3254","jvictorbguimaraes@gmail.com","16-8-2021","2-8-1986");
+        client = new Client(2  ,"jvictor","456123","Joao Victor","Scarborough","(437)567 3254","jvictorbguimaraes@gmail.com","16-8-2021","2-8-1986");
         clients.add(client);
-        client = new Client(3  ,"esha.shetty","789456","Esha Shetty","North York","(435)858 7688","esha@gmail.com","10-8-2021","3-09-1996");
+        client = new Client(3  ,"esha.shetty","789456","Esha Shetty","North York","(435)858 7688","esha.dshetty@gmail.com","10-8-2021","3-09-1996");
         clients.add(client);
     }
 
