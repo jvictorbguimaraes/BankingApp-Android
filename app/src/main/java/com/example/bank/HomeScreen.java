@@ -240,7 +240,7 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
                 try{
                     GMailSender sender = new GMailSender("juliedos19@gmail.com",
                             "chickenbariken");
-                    sender.sendMail("JEM Bank Transfer", message,
+                    sender.sendMail("Toronto Bank Transfer", message,
                             "juliedos19@gmail.com", email);
                 } catch (Exception e) {
                 }
