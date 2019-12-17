@@ -34,12 +34,8 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
     Client loggedClient;
     ArrayList<Client> clients;
 
-    ArrayList<Account> accounts = new ArrayList<>();
+    ArrayList<Account> accounts;
     ArrayList <Bill> bills = new ArrayList<>();
-    ArrayList<Transaction> transactions = new ArrayList<>();
-
-    public static Boolean checkFirst;
-
     private SimpleDateFormat f = new SimpleDateFormat("MM/dd/yyyy");
 
     @Override
@@ -47,9 +43,7 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
 
-        //Button btnCheq = (Button) findViewById(R.id.btnCheq);
-        //Button btnSaving =(Button) findViewById(R.id.btnSaving);
-
+        loggedClient = MainActivity.loggedClient;
         tabLayout = findViewById(R.id.tabLayout);
         viewPager = findViewById(R.id.view_pager);
         tabHome = findViewById(R.id.tabHome);
@@ -59,17 +53,9 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
         pageAdapter = new PageAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
         viewPager.setAdapter(pageAdapter);
 
-
-        loggedClient = MainActivity.loggedClient;
+        accounts = MainActivity.accounts;
         clients = MainActivity.clients;
-
-        fillAccounts();
         fillBills();
-        //if(checkFirst == null){
-            checkFirst = true;
-            accounts = new ArrayList<>();
-            fillAccounts();
-       // }
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -103,7 +89,7 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
     }
 
     public ArrayList<Account> getAccounts(){
-        return accounts;
+        return MainActivity.accounts;
     }
 
     public void transfer(View view){
@@ -195,7 +181,7 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
     }
 
     public Account findAccountByClient(int number, String type){
-        for(Account account : accounts){
+        for(Account account : MainActivity.accounts){
             if (account.clientID == number && ((type.equals("Saving") && account instanceof Saving) || (type.equals("Chequing") && account instanceof Chequing) || (type.equals("Credit") && account instanceof Credit)))
                 return account;
         }
@@ -203,7 +189,7 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
     }
 
     public Account findAccount(int number){
-        for(Account account : accounts){
+        for(Account account : MainActivity.accounts){
             if (account.number == number)
                 return account;
         }
@@ -220,47 +206,7 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
 
     }
 
-    public void fillAccounts(){
-        Account account = new Saving(12345, 0,1500.0);
-        accounts.add(account);
-        account = new Chequing(456187,0, 1575.0);
-        accounts.add(account);
-        account = new Credit(879845,0,437.95, 1500.0);
-        account.transactions.add(new Transaction(-7.25,f.format(new Date()),"Tim Hortons"));
-        account.transactions.add(new Transaction(-425.50,f.format(new Date()),"IKEA"));
-        account.transactions.add(new Transaction(-5.20,f.format(new Date()),"Tim Hortons"));
-        accounts.add(account);
 
-        account = new Saving(245487, 1,512.0);
-        accounts.add(account);
-        account = new Chequing(518789,1, 0.0);
-        accounts.add(account);
-        account = new Credit(215648,1,437.95, 500.0);
-        account.transactions.add(new Transaction(-7.25,f.format(new Date()),"Tim Hortons"));
-        account.transactions.add(new Transaction(-425.50,f.format(new Date()),"IKEA"));
-        account.transactions.add(new Transaction(-5.20,f.format(new Date()),"Tim Hortons"));
-        accounts.add(account);
-
-        account = new Saving(87546, 2,2654.0);
-        accounts.add(account);
-        account = new Chequing(214578,2, 201.0);
-        accounts.add(account);
-        account = new Credit(35987,2,437.95, 1500.0);
-        account.transactions.add(new Transaction(-7.25,f.format(new Date()),"Tim Hortons"));
-        account.transactions.add(new Transaction(-425.50,f.format(new Date()),"IKEA"));
-        account.transactions.add(new Transaction(-5.20,f.format(new Date()),"Tim Hortons"));
-        accounts.add(account);
-
-        account = new Saving(254489, 3,1512.0);
-        accounts.add(account);
-        account = new Chequing(17787,3, 145.0);
-        accounts.add(account);
-        account = new Credit(67878,3,437.95, 800.0);
-        account.transactions.add(new Transaction(-7.25,f.format(new Date()),"Tim Hortons"));
-        account.transactions.add(new Transaction(-425.50,f.format(new Date()),"IKEA"));
-        account.transactions.add(new Transaction(-5.20,f.format(new Date()),"Tim Hortons"));
-        accounts.add(account);
-    }
 
     public void fillBills(){
 
@@ -310,14 +256,14 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
 
     public void getTransactionsCheq(View v){
         Intent intent = new Intent(this, TransactionActivities.class);
-        intent.putExtra("accnts",accounts);
+        intent.putExtra("accnts",MainActivity.accounts);
         intent.putExtra("accntname",String.valueOf(loggedClient.id));
         intent.putExtra("btn","btnCheq");
         startActivity(intent);
     }
     public void getTransactionsSaving(View v){
         Intent intent = new Intent(this, TransactionActivities.class);
-        intent.putExtra("accnts",accounts);
+        intent.putExtra("accnts",MainActivity.accounts);
         intent.putExtra("accntname",String.valueOf(loggedClient.id));
         intent.putExtra("btn","btnSaving");
         startActivity(intent);
@@ -325,7 +271,7 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
 
     public void getTransactionsCredit(View v){
         Intent intent = new Intent(this, TransactionActivities.class);
-        intent.putExtra("accnts",accounts);
+        intent.putExtra("accnts",MainActivity.accounts);
         intent.putExtra("accntname",String.valueOf(loggedClient.id));
         intent.putExtra("btn","btnCredit");
         startActivity(intent);
@@ -347,7 +293,7 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
         {
             Double amount = Double.parseDouble(data.getExtras().getString("amount"));
 
-            if(data.getExtras().getString("type") == "Saving"){
+            if(data.getExtras().getString("type").equals("Saving")){
                 Account saving = findAccountByClient(loggedClient.id,"Saving");
                 saving.setAmount(saving.getAmount() - amount);
                 saving.transactions.add(new Transaction(amount, f.format(new Date()),"Payment"));
