@@ -153,6 +153,7 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
                userAccount.amount -= bills.get(pos).getAmount();
                bills.get(pos).setBillStatus(true);
                Toast.makeText(getApplicationContext(),"Bill Paid Successfully", Toast.LENGTH_LONG).show();
+               userAccount.transactions.add(new Transaction(0, selectedBill.getAmount(), new Date()));
            }
            else {
                Toast.makeText(getApplicationContext(),"Bill Already Paid!", Toast.LENGTH_LONG).show();
