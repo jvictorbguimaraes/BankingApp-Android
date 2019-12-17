@@ -10,7 +10,10 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,7 +28,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     TabLayout tabLayout;
     ViewPager viewPager;
@@ -34,8 +37,17 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
     Client loggedClient;
     ArrayList<Client> clients;
 
+//    RadioGroup bType;
+//    RadioButton hydro;
+//    RadioButton water;
+//    RadioButton mobile;
+//    RadioButton gas;
+//    EditText billNo;
+//    Spinner accType;
+//    TextView billDetails;
+
     ArrayList<Account> accounts;
-    ArrayList <Bill> bills = new ArrayList<>();
+    public static ArrayList <Bill> bills = new ArrayList<>();
     private SimpleDateFormat f = new SimpleDateFormat("MM/dd/yyyy");
 
     @Override
@@ -52,6 +64,9 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
         tabProfile = findViewById(R.id.tabProfile);
         pageAdapter = new PageAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
         viewPager.setAdapter(pageAdapter);
+
+
+
 
         accounts = MainActivity.accounts;
         clients = MainActivity.clients;
@@ -137,8 +152,8 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
     }
 
     public void payBill(View v){
-       EditText billNo = findViewById(R.id.billNo);
-       Spinner accType = findViewById(R.id.accountType);
+        EditText billNo = findViewById(R.id.billNo);
+        Spinner accType = findViewById(R.id.accountType);
        Account userAccount = findAccountByClient(loggedClient.id, accType.getSelectedItem().toString());
        Bill selectedBill = new Bill();
        boolean found = false;
@@ -318,4 +333,38 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
     public void logOut(View view){
         this.finish();
     }
+
+//    @Override
+//    public void onCheckedChanged(RadioGroup group, int checkedId) {
+//
+//        Bill b = new Bill();
+//            if(hydro.isChecked()){
+//                b=findBill("Hydro");
+//            }
+//            else if(gas.isChecked()){
+//                b=findBill("Gas");
+//            }
+//            else if(mobile.isChecked()){
+//                b=findBill("Mobile");
+//            }
+//            else{
+//                b=findBill("Water");
+//            }
+//        billDetails.setText(b.getBillNo()+" | "+b.getBillType()+" | "+b.getAmount()+" | "+b.getBillStatus());
+//    }
+//
+//    @Override
+//    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//
+//    }
+//
+//    public Bill findBill(String type){
+//        Bill b = new Bill();
+//        for( Bill bill: bills) {
+//            if(type == bill.getBillType()){
+//                b = bill;
+//            }
+//        }
+//        return b;
+//    }
 }

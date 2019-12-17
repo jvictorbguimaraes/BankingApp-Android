@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".tabBills">
 
-    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <TableLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:stretchColumns="*"
@@ -73,28 +72,29 @@
 
             <RadioGroup
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:id="@+id/billT">
 
                 <RadioButton
-                    android:id="@+id/radioButton3"
+                    android:id="@+id/hydro"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Hydro" />
 
                 <RadioButton
-                    android:id="@+id/radioButton4"
+                    android:id="@+id/water"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Water" />
 
                 <RadioButton
-                    android:id="@+id/radioButton2"
+                    android:id="@+id/mobile"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Mobile" />
 
                 <RadioButton
-                    android:id="@+id/radioButton"
+                    android:id="@+id/gas"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Gas" />
@@ -103,18 +103,37 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent"
+            android:layout_marginTop="15dp">
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bill Details"
+                android:fontFamily="@font/libre_franklin"
+                android:textColor="#000000"
+                android:textSize="20dp"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/billDetails"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="" />
+                android:text=""
+                android:fontFamily="@font/libre_franklin"
+                android:textColor="#000000"
+                android:textSize="12dp" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp">
 
             <TextView
                 android:id="@+id/billNoTitle"
