@@ -21,7 +21,7 @@ import java.util.Objects;
  */
 public class tabHome extends Fragment {
 
-    TextView txtCheq,txtSaving,txtCred,txthave,txtCreditLimit;
+    TextView txtCheq,txtSaving,txtCred,txthave,txtCreditLimit, txtAvailable;
     int chkid=0;
     String ass ="";
     double have = 0.0;
@@ -43,6 +43,7 @@ public class tabHome extends Fragment {
         txtCred = view.findViewById(R.id.txtCred);
         txthave = view.findViewById(R.id.txthave);
         txtCreditLimit = view.findViewById(R.id.txtCreditLimit);
+        txtAvailable = view.findViewById(R.id.txtAvailable);
         loadTexts();
 
         return view;
@@ -68,6 +69,8 @@ public class tabHome extends Fragment {
                 {
                     txtCred.setText("$" + String.format("%.2f", account.amount));
                     txtCreditLimit.setText("$" + ((Credit) account).creditLimit.toString());
+                    Double total = ((Credit) account).creditLimit - account.amount;
+                    txtAvailable.setText("$" + total.toString());
                 }
             }
         }
