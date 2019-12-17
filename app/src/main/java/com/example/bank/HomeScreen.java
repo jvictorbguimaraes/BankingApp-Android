@@ -296,13 +296,13 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
             if(data.getExtras().getString("type").equals("Saving")){
                 Account saving = findAccountByClient(loggedClient.id,"Saving");
                 saving.setAmount(saving.getAmount() - amount);
-                saving.transactions.add(new Transaction(amount, f.format(new Date()),"Payment"));
+                saving.transactions.add(new Transaction(-amount, f.format(new Date()),"Payment"));
                 TextView txtSaving = findViewById(R.id.txtSaving);
                 txtSaving.setText("$" + String.format("%.2f", saving.getAmount()));
             }else{
                 Account chequing = findAccountByClient(loggedClient.id,"Chequing");
                 chequing.setAmount(chequing.getAmount() - amount);
-                chequing.transactions.add(new Transaction(amount, f.format(new Date()),"Payment"));
+                chequing.transactions.add(new Transaction(-amount, f.format(new Date()),"Payment"));
                 TextView txtChequing = findViewById(R.id.txtCheq);
                 txtChequing.setText("$" + String.format("%.2f", chequing.getAmount()));
             }
@@ -313,5 +313,9 @@ public class HomeScreen extends AppCompatActivity implements AdapterView.OnItemS
             TextView txtCred = findViewById(R.id.txtCred);
             txtCred.setText("$" + String.format("%.2f", credit.getAmount()));
         }
+    }
+
+    public void logOut(View view){
+        this.finish();
     }
 }
