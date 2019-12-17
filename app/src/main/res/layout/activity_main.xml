@@ -5,37 +5,45 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:stretchColumns="*"
-        android:layout_margin="30dp">
+        android:layout_margin="30dp"
+        android:textAlignment="center">
 
         <TableRow
-            android:layout_width="0dp"
-            android:layout_height="match_parent" >
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Welcome"
-                android:textSize="20dp"
-                android:fontFamily="@font/libre_franklin"/>
+            <ImageView
+                android:id="@+id/icon"
+                android:layout_width="39dp"
+                android:layout_height="78dp"
+                android:layout_weight="1"
+                android:src="@drawable/logo" />
+
         </TableRow>
 
         <TableRow
-            android:layout_width="0dp"
-            android:layout_height="match_parent" >
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textAlignment="center">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Enter Username"
                 android:fontFamily="@font/libre_franklin"
-                android:textSize="20dp"/>
+                android:text="Enter Username"
+                android:textSize="20dp"
+                android:textColor="#000"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
 
             <EditText
                 android:id="@+id/username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="jvictor" />
-
         </TableRow>
 
         <TableRow
@@ -45,9 +53,15 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Enter Password"
                 android:fontFamily="@font/libre_franklin"
-                android:textSize="20dp"/>
+                android:text="Enter Password"
+                android:textSize="20dp"
+                android:textColor="#000"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="0dp"
+            android:layout_height="match_parent" >
 
             <EditText
                 android:id="@+id/password"
@@ -65,9 +79,13 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="#F5CA1818"
+                android:fontFamily="@font/libre_franklin"
                 android:onClick="login"
                 android:text="Login"
-                android:fontFamily="@font/libre_franklin"/>
+                android:textColor="#FFFFFF"
+                android:textFontWeight="700"
+                android:textSize="19dp"/>
 
         </TableRow>
     </TableLayout>
