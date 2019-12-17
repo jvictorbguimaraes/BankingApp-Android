@@ -27,7 +27,7 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
     implementation 'com.google.android.material:material:1.0.0'
-    compile files('libraries/activation.jar')
-    compile files('libraries/additionnal.jar')
-    compile files('libraries/mail.jar')
+    implementation files('libraries/activation.jar')
+    implementation files('libraries/additionnal.jar')
+    implementation files('libraries/mail.jar')
 }

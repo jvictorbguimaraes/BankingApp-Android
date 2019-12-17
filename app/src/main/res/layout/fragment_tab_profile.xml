@@ -15,14 +15,36 @@
 
         <TableRow
             android:layout_width="0dp"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:text="Profile"
+                android:textColor="#F5CA1818"
+                android:textSize="25dp"
+                app:fontFamily="@font/libre_franklin"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TableRow
+            android:layout_width="0dp"
             android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/nameTitle"
-                android:layout_width="match_parent"
+                android:layout_width="101dp"
                 android:layout_height="match_parent"
                 android:text="Name"
-                android:textSize="20dp"/>
+                android:textColor="#000000"
+                android:textSize="17dp"
+                app:fontFamily="@font/libre_franklin" />
 
             <EditText
                 android:id="@+id/name"
@@ -30,7 +52,9 @@
                 android:layout_height="match_parent"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="" />
+                android:text=""
+                android:textSize="17dp"
+                app:fontFamily="@font/libre_franklin"  />
         </TableRow>
 
         <TableRow
@@ -41,7 +65,10 @@
                 android:id="@+id/bdayTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Birthday" />
+                android:text="Birthday"
+                android:textColor="#000000"
+                android:textSize="17dp"
+                app:fontFamily="@font/libre_franklin"/>
 
             <EditText
                 android:id="@+id/bday"
@@ -49,7 +76,9 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="" />
+                android:text=""
+                android:textSize="17dp"
+                app:fontFamily="@font/libre_franklin" />
         </TableRow>
 
         <TableRow
@@ -60,7 +89,10 @@
                 android:id="@+id/sinTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="SIN Expiry Date" />
+                android:text="SIN Expiry Date"
+                android:textColor="#000000"
+                android:textSize="17dp"
+                app:fontFamily="@font/libre_franklin"/>
 
             <EditText
                 android:id="@+id/sin"
@@ -68,7 +100,9 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="" />
+                android:text=""
+                android:textSize="17dp"
+                app:fontFamily="@font/libre_franklin"  />
         </TableRow>
 
         <TableRow
@@ -79,7 +113,10 @@
                 android:id="@+id/emailTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Email" />
+                android:text="Email"
+                android:textColor="#000000"
+                android:textSize="17dp"
+                app:fontFamily="@font/libre_franklin" />
 
             <EditText
                 android:id="@+id/email"
@@ -87,7 +124,9 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="" />
+                android:text=""
+                android:textSize="17dp"
+                app:fontFamily="@font/libre_franklin" />
         </TableRow>
 
         <TableRow
@@ -98,7 +137,10 @@
                 android:id="@+id/phoneTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Phone" />
+                android:text="Phone"
+                android:textColor="#000000"
+                android:textSize="17dp"
+                app:fontFamily="@font/libre_franklin" />
 
             <EditText
                 android:id="@+id/phone"
@@ -106,7 +148,9 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="" />
+                android:text=""
+                android:textSize="17dp"
+                app:fontFamily="@font/libre_franklin"  />
         </TableRow>
 
         <TableRow
@@ -117,7 +161,10 @@
                 android:id="@+id/addressTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Address" />
+                android:text="Address"
+                android:textColor="#000000"
+                android:textSize="17dp"
+                app:fontFamily="@font/libre_franklin" />
 
             <EditText
                 android:id="@+id/address"
@@ -125,18 +172,24 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="" />
+                android:text=""
+                android:textSize="17dp"
+                app:fontFamily="@font/libre_franklin"  />
         </TableRow>
 
         <TableRow
-            android:layout_width="0dp"
-            android:layout_height="match_parent">
+            android:layout_width="match_parent"
+            android:layout_height="100dp">
 
             <Button
                 android:id="@+id/update"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Update" />
+                android:layout_marginTop="10dp"
+                android:background="#F5CA1818"
+                android:text="Update"
+                android:textColor="#fff"
+                app:fontFamily="@font/libre_franklin" />
         </TableRow>
 
     </TableLayout>

@@ -7,147 +7,202 @@
     tools:context=".tabHome">
 
     <TableLayout
-        android:layout_margin="20dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:stretchColumns="*">
+        android:stretchColumns="*"
+        android:layout_margin="20dp">
 
         <TableRow
             android:layout_width="0dp"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent" >
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Banking"
-                android:textSize="20dp"
+                android:layout_marginBottom="20dp"
+                android:text="Account Balance"
+                android:textColor="#F5CA1818"
+                android:textSize="25dp"
                 app:fontFamily="@font/libre_franklin" />
         </TableRow>
 
         <TableRow
             android:layout_width="0dp"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp">
 
-            <TextView
-                android:id="@+id/textView8"
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Chequing"
-                android:textSize="20dp"
-                app:fontFamily="@font/libre_franklin" />
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/txtCheq"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TextView"
-                app:fontFamily="@font/libre_franklin"  />
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="Chequing"
+                    android:textColor="#000000"
+                    android:textSize="18dp"
+                    app:fontFamily="@font/libre_franklin" />
 
-            <Button
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="50dp"
-                android:onClick="getTransactionsCheq"
-                android:text="Check" />
+                <TextView
+                    android:id="@+id/txtCheq"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp"
+                    android:text="TextView"
+                    android:textColor="#000000"
+                    android:textSize="15dp"
+                    app:fontFamily="@font/libre_franklin" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#F5CA1818"
+                    android:onClick="getTransactionsCheq"
+                    android:text="Check"
+                    android:textColor="#fff" />
+
+            </LinearLayout>
+
         </TableRow>
 
         <TableRow
             android:layout_width="0dp"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp">
 
-            <TextView
-                android:id="@+id/textView10"
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Saving"
-                android:textSize="20dp"
-                app:fontFamily="@font/libre_franklin"  />
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/txtSaving"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TextView"
-                app:fontFamily="@font/amiko" />
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="Saving"
+                    android:textColor="#000000"
+                    android:textSize="18dp"
+                    app:fontFamily="@font/libre_franklin" />
 
-            <Button
-                android:id="@+id/btnSaving"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="50dp"
-                android:onClick="getTransactionsSaving"
-                android:text="Check" />
+                <TextView
+                    android:id="@+id/txtSaving"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp"
+                    android:text="TextView"
+                    android:textColor="#000000"
+                    android:textSize="15dp"
+                    app:fontFamily="@font/amiko" />
+
+                <Button
+                    android:id="@+id/btnSaving"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#F5CA1818"
+                    android:onClick="getTransactionsSaving"
+                    android:text="Check"
+                    android:textColor="#fff"
+                    />
+            </LinearLayout>
+
         </TableRow>
 
         <TableRow
             android:layout_width="0dp"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginTop="30dp">
 
             <TextView
                 android:id="@+id/textView11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Credit"
-                android:textSize="20dp"
-                app:fontFamily="@font/libre_franklin"  />
+                android:textColor="#000000"
+                android:textSize="18dp"
+                app:fontFamily="@font/libre_franklin" />
         </TableRow>
 
         <TableRow
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginBottom="20dp">
+            android:layout_marginTop="10dp">
 
-            <TextView
-                android:id="@+id/textView12"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:text="Balance"
-                android:textSize="20sp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/txtCred"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:text="TextView" />
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="Balance "
+                    android:textColor="#000000"
+                    android:textSize="16dp" />
 
-            <Button
-                android:id="@+id/btnCredit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="50dp"
-                android:onClick="getTransactionsCredit"
-                android:text="Check" />
+                <TextView
+                    android:id="@+id/txtCred"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp"
+                    android:text="TextView"
+                    android:textColor="#000000" />
+
+                <Button
+                    android:id="@+id/btnCredit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#F5CA1818"
+                    android:onClick="getTransactionsCredit"
+                    android:text="Check"
+                    android:textColor="#fff" />
+
+            </LinearLayout>
+
         </TableRow>
         <TableRow
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginBottom="20dp">
+            android:layout_marginTop="10dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:text="Credit Limit"
-                android:textSize="20sp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/txtCreditLimit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:text="TextView" />
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="Credit Limit"
+                    android:textColor="#000000"
+                    android:textSize="16dp" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="50dp"
-                android:onClick="payCredit"
-                android:text="Pay" />
+                <TextView
+                    android:id="@+id/txtCreditLimit"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp"
+                    android:text="TextView"
+                    android:textColor="#000000" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#F5CA1818"
+                    android:onClick="payCredit"
+                    android:text="Pay"
+                    android:textColor="#fff" />
+            </LinearLayout>
+
         </TableRow>
 
         <TableRow
@@ -158,7 +213,7 @@
                 android:id="@+id/textView13"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Summary"
+                android:textColor="#000000"
                 android:textSize="20dp"
                 app:fontFamily="@font/libre_franklin" />
         </TableRow>
@@ -171,15 +226,15 @@
                 android:id="@+id/textView14"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="What I have"
+                android:textColor="#000000"
                 app:fontFamily="@font/libre_franklin" />
 
             <TextView
                 android:id="@+id/txthave"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView"
-                app:fontFamily="@font/libre_franklin"  />
+                android:textColor="#000000"
+                app:fontFamily="@font/libre_franklin" />
 
 
         </TableRow>
@@ -190,17 +245,17 @@
 
             <TextView
                 android:id="@+id/textView17"
-                android:layout_marginLeft="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="What I Owe"
+                android:layout_marginLeft="20dp"
+                android:textColor="#000000"
                 app:fontFamily="@font/libre_franklin" />
 
             <TextView
                 android:id="@+id/txtowe"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView"
+                android:textColor="#000000"
                 app:fontFamily="@font/libre_franklin" />
         </TableRow>
     </TableLayout>

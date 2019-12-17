@@ -6,11 +6,27 @@
     android:layout_height="match_parent"
     tools:context=".tabBills">
 
-
-    <TableLayout
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:stretchColumns="*">
+        android:stretchColumns="*"
+        android:layout_margin="30dp">
+
+        <TableRow
+            android:layout_width="0dp"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:textColor="#F5CA1818"
+                android:textSize="25dp"
+                app:fontFamily="@font/libre_franklin"
+                android:text="Bill Payment" />
+        </TableRow>
 
         <TableRow
             android:layout_width="0dp"
@@ -20,24 +36,35 @@
                 android:id="@+id/accountTypeTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Select Account" />
+                android:text="Select Account"
+                android:fontFamily="@font/libre_franklin"
+                android:textColor="#000000"
+                android:textSize="20dp"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="0dp"
+            android:layout_height="match_parent" >
 
             <Spinner
                 android:id="@+id/accountType"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
-
         </TableRow>
 
         <TableRow
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent" >
 
             <TextView
                 android:id="@+id/billType"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Select Bill Type" />
+                android:text="Select Bill Type"
+                android:fontFamily="@font/libre_franklin"
+                android:textColor="#000000"
+                android:textSize="20dp" />
         </TableRow>
 
         <TableRow
@@ -93,7 +120,16 @@
                 android:id="@+id/billNoTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Enter Bill Number" />
+                android:text="Enter Bill Number"
+                android:fontFamily="@font/libre_franklin"
+                android:textColor="#000000"
+                android:textSize="20dp"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
 
             <EditText
                 android:id="@+id/billNo"
@@ -112,8 +148,20 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Pay"
-                android:onClick="payBill"/>
+                android:onClick="payBill"
+                android:fontFamily="@font/libre_franklin"
+                android:layout_marginTop="10dp"
+                android:background="#F5CA1818"
+                android:textColor="#fff" />
         </TableRow>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="40px"
+            app:srcCompat="@android:drawable/ic_menu_close_clear_cancel"
+            android:onClick="logOut"/>
     </TableLayout>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
