@@ -51,13 +51,13 @@ public class CreditPayment extends AppCompatActivity {
         }
 
         Intent intent=new Intent();
-        if(creditSp.getSelectedItem().toString() == "Chequing"){
+        if(creditSp.getSelectedItem().toString().equals("Chequing")){
             if(Double.parseDouble(creditAmount.getText().toString()) > chequingAccount.amount){
                 Toast.makeText(getApplicationContext(),"Your account cannot transfer this amount", Toast.LENGTH_LONG).show();
                 return;
             }
             intent.putExtra("type","Chequing");
-        }else if(creditSp.getSelectedItem().toString() == "Saving"){
+        }else if(creditSp.getSelectedItem().toString().equals("Saving")){
             if(Double.parseDouble(creditAmount.getText().toString()) > savingAccount.amount){
                 Toast.makeText(getApplicationContext(),"Your account cannot transfer this amount", Toast.LENGTH_LONG).show();
                 return;
