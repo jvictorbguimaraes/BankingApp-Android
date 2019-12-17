@@ -37,15 +37,15 @@ public class TransactionActivities extends AppCompatActivity {
                 if (acc instanceof Chequing) {
                     if(getIntent().getExtras().getString("accntname").equals(String.valueOf(acc.clientID))){
                         for(Transaction trans: acc.transactions){
-                            if(!trans.getType().equals("")){
-                                ts.add(trans.getType() +": "+ trans.getDate() +" "+ trans.getAmount());
+                            if(trans.getType() != null && !trans.getType().equals("")){
+                                ts.add(trans.getType() +":         "+ trans.getDate() +"         $"+ trans.getAmount());
                             }
                             else if(trans.getAccount()==0)
                             {
-                                ts.add("Bill Payment: "+ trans.getDate() +" "+ trans.getAmount());
+                                ts.add("Bill Payment:          "+ trans.getDate() +"         $"+ trans.getAmount());
                             }
                             else{
-                                ts.add("Transfer:  "+ trans.getAccount()+" "+ trans.getDate()+" "+ trans.getAmount());
+                                ts.add("Transfer:         "+ trans.getAccount()+"         "+ trans.getDate()+"         $"+ trans.getAmount());
                             }
                         }
                     }
@@ -58,15 +58,15 @@ public class TransactionActivities extends AppCompatActivity {
                 if (acc instanceof Saving) {
                     if(getIntent().getExtras().getString("accntname").equals(String.valueOf(acc.clientID))){
                         for(Transaction trans: acc.transactions){
-                            if(!trans.getType().equals("")){
-                                ts.add(trans.getType() +": "+ trans.getDate() +" "+ trans.getAmount());
+                            if(trans.getType() != null && !trans.getType().equals("")){
+                                ts.add(trans.getType() +":         "+ trans.getDate() +"         $"+ trans.getAmount());
                             }
                             else if(trans.getAccount()==0)
                             {
-                                ts.add("Bill Payment: "+ trans.getDate() +" "+ trans.getAmount());
+                                ts.add("Bill Payment:         "+ trans.getDate() +"         $"+ trans.getAmount());
                             }
                             else{
-                                ts.add("Transfer:  "+ trans.getAccount()+" "+ trans.getDate()+" "+ trans.getAmount());
+                                ts.add("Transfer:         "+ trans.getAccount()+"         "+ trans.getDate()+"         $"+ trans.getAmount());
                             }
 
                         }
@@ -80,7 +80,7 @@ public class TransactionActivities extends AppCompatActivity {
                 if (acc instanceof Credit) {
                     if(getIntent().getExtras().getString("accntname").equals(String.valueOf(acc.clientID))){
                         for(Transaction trans: acc.transactions){
-                            ts.add(trans.getType() + trans.getDate() + trans.getAmount());
+                            ts.add(trans.getType() + "         " + trans.getDate() + "         $" + trans.getAmount());
                         }
                     }
                 }
