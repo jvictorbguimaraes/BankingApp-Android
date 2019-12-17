@@ -48,8 +48,7 @@ public class TransactionActivities extends AppCompatActivity {
                     }
                 }
             }
-        }else
-        {
+        }else if (getIntent().getExtras().getString("btn").equals("btnSaving")){
             txtAccType.setText("Saving Transaction History");
             ts.clear();
             for (Account acc : accounts) {
@@ -64,6 +63,18 @@ public class TransactionActivities extends AppCompatActivity {
                                 ts.add("Transfer:  "+ trans.getAccount()+" "+ trans.getDate().toString()+" "+ trans.getAmount());
                             }
 
+                        }
+                    }
+                }
+            }
+        }else{
+            txtAccType.setText("Credit Transaction History");
+            ts.clear();
+            for (Account acc : accounts) {
+                if (acc instanceof Credit) {
+                    if(getIntent().getExtras().getString("accntname").equals(String.valueOf(acc.clientID))){
+                        for(Transaction trans: acc.transactions){
+                            ts.add(trans.getType() + trans.getDate().toString() + trans.getAmount());
                         }
                     }
                 }

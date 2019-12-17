@@ -21,7 +21,7 @@ import java.util.Objects;
  */
 public class tabHome extends Fragment {
 
-    TextView txtCheq,txtSaving,txtCred,txthave;
+    TextView txtCheq,txtSaving,txtCred,txthave,txtCreditLimit;
     int chkid=0;
     String ass ="";
     double have = 0.0;
@@ -42,43 +42,36 @@ public class tabHome extends Fragment {
         txtCheq = view.findViewById(R.id.txtCheq);
         txtCred = view.findViewById(R.id.txtCred);
         txthave = view.findViewById(R.id.txthave);
-        test(view);
+        txtCreditLimit = view.findViewById(R.id.txtCreditLimit);
+        loadTexts();
 
         return view;
-
-
-
     }
 
-    public void test(View view){
+    public void loadTexts(){
         HomeScreen activity = (HomeScreen) getActivity();
         ArrayList<Account> accounts = activity.getAccounts();
 
-
-
-
         for(Account account : accounts){
-            Double a = account.amount;
             chkid = account.clientID;
             if(activity.loggedClient.id == chkid){
                 if(account instanceof Saving){
-                    txtSaving.setText("$" + account.amount.toString());
+                    txtSaving.setText("$" + String.format("%.2f", account.amount));
                     have = account.amount;
                 }
                 else if(account instanceof Chequing)
                 {
-                    txtCheq.setText("$" + account.amount.toString());
+                    txtCheq.setText("$" + String.format("%.2f", account.amount));
                     have += account.amount;
                 }
                 else if(account instanceof Credit)
                 {
-                    txtCred.setText("$" + ((Credit) account).creditLimit.toString());
+                    txtCred.setText("$" + String.format("%.2f", account.amount));
+                    txtCreditLimit.setText("$" + ((Credit) account).creditLimit.toString());
                 }
             }
         }
 
         txthave.setText("$" + have);
-
-
     }
 }
